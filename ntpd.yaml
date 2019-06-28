@@ -1,11 +1,10 @@
 ---
 - hosts: all
   tasks:
-    - name: NTP OS Package Installation
-      package: name=ntp state=present
+    - name: HTTP OS Package Installation
+      package: name=ntpd state=present
     - name: NTP File Configurations
-      file: path=/etc/ntp.conf state=file
-    - name: To start NTP services
-      service: name=ntpd state=started enabled=yes
+      file: path=/var/www/http/index.html state=file
+    - name: To start HTTP services
+      service: name=httpd state=started enabled=yes
 
-check service running status : service ntpd status
